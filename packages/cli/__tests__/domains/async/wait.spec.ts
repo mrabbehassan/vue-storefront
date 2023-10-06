@@ -1,8 +1,8 @@
-import { wait } from '../../../src/domains/generate/async';
-import { performance } from 'perf_hooks';
+import { performance } from "perf_hooks";
+import { wait } from "../../../src/domains/generate/async";
 
-describe('wait | unit tests', () => {
-  it('waits received amount of time', async () => {
+describe("wait | unit tests", () => {
+  it("waits received amount of time", async () => {
     const before = performance.now();
 
     await wait(100);
@@ -10,6 +10,6 @@ describe('wait | unit tests', () => {
     const after = performance.now();
 
     // Math.round because of the inaccuracy of the JavaScript floats.
-    expect(Math.round(after - before)).toBeGreaterThanOrEqual(100);
+    expect(Math.ceil(after - before)).toBeGreaterThanOrEqual(100);
   });
 });

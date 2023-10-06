@@ -1,18 +1,16 @@
-import { apiClientFactory } from '@vue-storefront/core';
-import * as api from './api';
+import { apiClientFactory } from "../../../src/apiClientFactory";
+import * as api from "./api";
 
-const onCreate = () => {
+const onCreate = (config: Record<string, unknown> = {}) => {
   return {
-    config: {},
-    client: null
+    config,
+    client: null,
   };
 };
 
 const { createApiClient } = apiClientFactory({
   onCreate,
-  api
+  api,
 });
 
-export {
-  createApiClient
-};
+export { createApiClient };
